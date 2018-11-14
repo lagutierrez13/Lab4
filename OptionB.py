@@ -69,12 +69,12 @@ def create_hash_table_1(file):
     print("Creating Hash Table from file...")
     # Create Hash Table and insert the lines in the file as nodes using the hash function and taking care of collisions
 
-    # Empty Hash Table of size 94
-    hash_table = [None] * 94
+    # Empty Hash Table of size 6000
+    hash_table = [None] * 6000
 
     for line in file1:
         # Get location in Hash Table using the hash function
-        location = hash_function_1(line)
+        location = hash_function_2(line)
 
         # Add the node to the linked list within the corresponding index in the hash table
         hash_table[location] = Node(line.strip(), hash_table[location])
@@ -134,7 +134,7 @@ def count_anagrams(hash_table, word, prefix=""):
         # Traverse the tree to look for word ***************
         in_tree = False
         # Using the hash function get the the index where the words with that first character are stored
-        current = hash_table[hash_function_1(word)]
+        current = hash_table[hash_function_2(word)]
         while current is not None:
             if current.word.lower() == string.lower():
                 in_tree = True  # The string is in the tree
